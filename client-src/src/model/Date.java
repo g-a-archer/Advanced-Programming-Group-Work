@@ -1,4 +1,4 @@
-package Model;
+package Client.Model;
 
 public class Date {
     int year,day,month;
@@ -13,6 +13,10 @@ public class Date {
         this.year = year;
         this.day = day;
         this.month = month;
+    }
+
+    public int calculateExpiryDate(){
+        return year!=0?getYear()*4:0;
     }
 
     public int getYear( ) {

@@ -1,4 +1,4 @@
-package Model;
+package Client.Model;
 
 public class Customer {
     String customerId;
@@ -21,7 +21,8 @@ public class Customer {
         this.domExpiry = new Date();
     }
 
-    public Customer(String customerId, String name, Date dob, String address, String telephone, String email, Date dom, Date domExpiry) {
+    public Customer(String customerId, String name, Date dob, String address,
+                    String telephone, String email, Date dom, Date domExpiry) {
         this.customerId = customerId;
         this.name = name;
         this.dob = dob;
@@ -86,6 +87,10 @@ public class Customer {
 
     public void setDom(Date dom) {
         this.dom = dom;
+    }
+
+    public void calulcateExpiryDate(){
+       this.domExpiry.calculateExpiryDate();
     }
 
     public Date getDomExpiry( ) {

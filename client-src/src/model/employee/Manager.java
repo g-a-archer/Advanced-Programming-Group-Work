@@ -1,4 +1,4 @@
-package Model.Employee;
+package Client.Model.Employee;
 
 public class Manager extends Employee {
 }

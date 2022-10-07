@@ -1,4 +1,4 @@
-package Model.Department;
+package Client.Model.Department;
 
 public class Department {
     String departmentCode;
