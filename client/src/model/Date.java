@@ -1,54 +1,92 @@
 package model;
 
+import java.text.SimpleDateFormat;
+
 public class Date {
-    int year,day,month;
-
-    Date(){
-        this.year = 0;
-        this.day = 0;
-        this.month = 0;
+    int dobDay,dobMonth,dobYear,expYear;
+    String today;
+    public Date(){ //TODO extend Java.util.Date
+        dobDay = 0;
+        dobYear = 0;
+        dobMonth = 0;
+    }
+    public Date(int dobDay, int dobMonth, int dobYear) {
+        this.dobDay = dobDay;
+        this.dobMonth = dobMonth;
+        this.dobYear = dobYear;
     }
 
-    public Date(int year, int day, int month, java.util.Date jDate) {
-        this.year = year;
-        this.day = day;
-        this.month = month;
+    public Date(Date date){
+        this.dobDay = getDobDay();
+        this.dobMonth = getDobMonth();
+        this.dobYear = getDobYear();
     }
 
-    public int calculateExpiryDate(){
-        return year!=0?getYear()*4:0;
+    //Gets the current date and calculates the expiry date
+    public void calculateExpiryDate(){
+        //getting today's date
+        getToday();
+        //Storing the last four digits ie the year in the year attribute
+        this.expYear = Integer.parseInt(
+                today.substring(
+                        today.length()-4));
+
+        //calculating the expiry dat
+        expYear= expYear!=0?expYear+4:0;
+
     }
 
-    public int getYear( ) {
-        return year;
+    public int getDobDay( ) {
+        return dobDay;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDobDay(int dobDay) {
+        this.dobDay = dobDay;
     }
 
-    public int getDay( ) {
-        return day;
+    public int getDobMonth( ) {
+        return dobMonth;
     }
 
-    public void setDay(int day) {
-        this.day = day;
+    public void setDobMonth(int dobMonth) {
+        this.dobMonth = dobMonth;
     }
 
-    public int getMonth( ) {
-        return month;
+    public int getDobYear( ) {
+        return dobYear;
     }
 
-    public void setMonth(int month) {
-        this.month = month;
+    public void setDobYear(int dobYear) {
+        this.dobYear = dobYear;
+    }
+
+    public int getExpYear( ) {
+        return expYear;
+    }
+
+    public void setExpYear(int expYear) {
+        this.expYear = expYear;
+    }
+
+    public String getToday( ) {
+
+        //Getting current today
+        java.util.Date jDate = new java.util.Date();
+
+        //Setting format for today
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        this.today = formatter.format(jDate);
+        return today;
     }
 
     @Override
     public String toString( ) {
         return "Date{" +
-                "year=" + year +
-                ", day=" + day +
-                ", month=" + month +
+                "dobDay=" + dobDay +
+                ", dobMonth=" + dobMonth +
+                ", dobYear=" + dobYear +
+                ", expYear=" + expYear +
+                ", today='" + today + '\'' +
                 '}';
     }
 }

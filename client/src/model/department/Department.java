@@ -1,8 +1,9 @@
-package model;
+package model.department;
 
 public class Department {
     String departmentCode;
     String name;
+
 
     public Department(){
      departmentCode = "''";

@@ -19,6 +19,7 @@ public class Customer {
         this.email = "''";
         this.dom =  new Date();
         this.domExpiry = new Date();
+        domExpiry.calculateExpiryDate();
     }
 
     public Customer(String customerId, String name, Date dob, String address,
@@ -89,7 +90,7 @@ public class Customer {
         this.dom = dom;
     }
 
-    public void calulcateExpiryDate(){
+    public void calculateExpiryDate(){
        this.domExpiry.calculateExpiryDate();
     }
 
