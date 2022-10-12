@@ -3,23 +3,23 @@ package model;
 import java.text.SimpleDateFormat;
 
 public class Date {
-    int dobDay,dobMonth,dobYear,expYear;
+    int day, month, year,expYear;
     String today;
-    public Date(){ //TODO extend Java.util.Date
-        dobDay = 0;
-        dobYear = 0;
-        dobMonth = 0;
+    public Date(){
+        day = 0;
+        year = 0;
+        month = 0;
     }
-    public Date(int dobDay, int dobMonth, int dobYear) {
-        this.dobDay = dobDay;
-        this.dobMonth = dobMonth;
-        this.dobYear = dobYear;
+    public Date(int day, int month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
     }
 
     public Date(Date date){
-        this.dobDay = getDobDay();
-        this.dobMonth = getDobMonth();
-        this.dobYear = getDobYear();
+        this.day = getDay();
+        this.month = getMonth();
+        this.year = getYear();
     }
 
     //Gets the current date and calculates the expiry date
@@ -36,28 +36,28 @@ public class Date {
 
     }
 
-    public int getDobDay( ) {
-        return dobDay;
+    public int getDay( ) {
+        return day;
     }
 
-    public void setDobDay(int dobDay) {
-        this.dobDay = dobDay;
+    public void setDay(int day) {
+        this.day = day;
     }
 
-    public int getDobMonth( ) {
-        return dobMonth;
+    public int getMonth( ) {
+        return month;
     }
 
-    public void setDobMonth(int dobMonth) {
-        this.dobMonth = dobMonth;
+    public void setMonth(int month) {
+        this.month = month;
     }
 
-    public int getDobYear( ) {
-        return dobYear;
+    public int getYear( ) {
+        return year;
     }
 
-    public void setDobYear(int dobYear) {
-        this.dobYear = dobYear;
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public int getExpYear( ) {
@@ -82,9 +82,9 @@ public class Date {
     @Override
     public String toString( ) {
         return "Date{" +
-                "dobDay=" + dobDay +
-                ", dobMonth=" + dobMonth +
-                ", dobYear=" + dobYear +
+                "day=" + day +
+                ", month=" + month +
+                ", year=" + year +
                 ", expYear=" + expYear +
                 ", today='" + today + '\'' +
                 '}';

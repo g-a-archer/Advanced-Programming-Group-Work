@@ -10,6 +10,8 @@ public class Customer {
     Date dom; // Date of Membership
     Date domExpiry;
 
+    boolean membershipStatus;
+
     public Customer(){
         this.customerId = "''";
         this.name = "''";
@@ -18,8 +20,9 @@ public class Customer {
         this.telephone = "''";
         this.email = "''";
         this.dom =  new Date();
-        this.domExpiry = new Date();
+        this.domExpiry = dom;
         domExpiry.calculateExpiryDate();
+        membershipStatus = checkMembershipStatus();
     }
 
     public Customer(String customerId, String name, Date dob, String address,
@@ -32,6 +35,10 @@ public class Customer {
         this.email = email;
         this.dom = dom;
         this.domExpiry = domExpiry;
+    }
+
+    public boolean checkMembershipStatus(){
+        return dom.year < domExpiry.expYear;
     }
 
     public String getCustomerId( ) {

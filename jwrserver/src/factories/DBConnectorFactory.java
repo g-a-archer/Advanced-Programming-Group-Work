@@ -29,6 +29,7 @@ public class DBConnectorFactory {
             String url="jdbc:mysql://sql5.freesqldatabase.com:3306/sql5524930";
             log.info("Trying to Connect to" + url);
 
+
 			try {
 				connection= DriverManager.getConnection(url, "sql5524930", "wWlwxxSddD");
 				if(connection!=null) {

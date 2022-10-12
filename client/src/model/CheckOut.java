@@ -8,24 +8,26 @@ public class CheckOut {
     int quantityOfItem;
     String cashier;
     String customer;
+    float discountRate;
 
     public CheckOut(){
         this.invoiceNum = -1;
         this.billingDate = new Date();
-        this.item = item;
-        this.quantityOfItem = quantityOfItem;
-        this.cashier = cashier;
-        this.customer = customer;
-
+        this.item = "''";
+        this.quantityOfItem = 0;
+        this.cashier = "''";
+        this.customer = "''";
+   
     }
 
-    public CheckOut(int invoiceNum, Date billingDate, String item, int quantityOfItem, String cashier, String customer) {
+    public CheckOut(int invoiceNum, Date billingDate, String item, int quantityOfItem, String cashier, String customer, float discountRate) {
         this.invoiceNum = invoiceNum;
         this.billingDate = billingDate;
         this.item = item;
         this.quantityOfItem = quantityOfItem;
         this.cashier = cashier;
         this.customer = customer;
+        this.discountRate = discountRate;
     }
 
     public int getInvoiceNum( ) {
@@ -76,6 +78,14 @@ public class CheckOut {
         this.customer = customer;
     }
 
+    public float getDiscountRate( ) {
+        return discountRate;
+    }
+
+    public void setDiscountRate(float discountRate) {
+        this.discountRate = discountRate;
+    }
+
     @Override
     public String toString( ) {
         return "CheckOut{" +
@@ -85,6 +95,7 @@ public class CheckOut {
                 ", quantityOfItem=" + quantityOfItem +
                 ", cashier='" + cashier + '\'' +
                 ", customer='" + customer + '\'' +
+                ", discountRate=" + discountRate +
                 '}';
     }
 }
