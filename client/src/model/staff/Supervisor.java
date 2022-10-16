@@ -1,24 +1,9 @@
 package model.staff;
 
+import model.Staff;
 
-import java.util.Arrays;
+public class Supervisor extends Staff {
 
-public class Supervisor extends Employee {
+	private static final long serialVersionUID = 4801957816410214976L;
 
-    public Supervisor(){
-        super();
-    }
-
-
-    @Override
-    public String toString( ) {
-        return "Supervisor{" +
-                "staffId='" + staffId + '\'' +
-                ", name='" + name + '\'' +
-                ", dob=" + dob +
-                ", address='" + address + '\'' +
-                ", telephone=" + Arrays.toString(telephone) +
-                ", email='" + email + '\'' +
-                "} ";
-    }
 }
