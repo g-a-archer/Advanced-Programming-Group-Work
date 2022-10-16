@@ -40,7 +40,7 @@ private JPanel dateOfMembershipExpirePanel;
 private JPanel buttonPanel;
 
 public RegisterCustomer() {
-frame = new JFrame("GridLayout Example");
+frame = new JFrame("Register View");
 firstNameLabel = new JLabel("First Name: ");
 lastNameLabel = new JLabel("Last Name: ");
 dateOfBirthLabel = new JLabel("Date of Birth:");
