@@ -1,18 +1,9 @@
 package model.department;
 
+import model.Department;
+
 public class Management extends Department {
 
-    public Management( ) {
-        super();
-        departmentCode = "Man002";
-        name = "Management";
-    }
+	private static final long serialVersionUID = 4801957816410214976L;
 
-    @Override
-    public String toString( ) {
-        return "Management{" +
-                "departmentCode='" + departmentCode + '\'' +
-                ", name='" + name + '\'' +
-                "} ";
-    }
 }

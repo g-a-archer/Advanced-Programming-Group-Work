@@ -1,125 +1,119 @@
 package model;
 
-public class Customer {
-    String customerId;
-    String name;
-    Date dob;
-    String address;
-    String telephone;
-    String email;
-    Date dom; // Date of Membership
-    Date domExpiry;
+import java.io.Serializable;
+import java.time.LocalDate;
 
-    boolean membershipStatus;
+public class Customer implements Serializable {
 
-    public Customer(){
-        this.customerId = "''";
-        this.name = "''";
-        this.dob = new Date();
-        this.address = "''";
-        this.telephone = "''";
-        this.email = "''";
-        this.dom =  new Date();
-        this.domExpiry = dom;
-        domExpiry.calculateExpiryDate();
-        membershipStatus = checkMembershipStatus();
-    }
+	private static final long serialVersionUID = 4801957816410214976L;
 
-    public Customer(String customerId, String name, Date dob, String address,
-                    String telephone, String email, Date dom, Date domExpiry) {
-        this.customerId = customerId;
-        this.name = name;
-        this.dob = dob;
-        this.address = address;
-        this.telephone = telephone;
-        this.email = email;
-        this.dom = dom;
-        this.domExpiry = domExpiry;
-    }
+	private int id;
 
-    public boolean checkMembershipStatus(){
-        return dom.year < domExpiry.expYear;
-    }
+	private String name;
 
-    public String getCustomerId( ) {
-        return customerId;
-    }
+	private LocalDate dob;
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
+	private String address;
 
-    public String getName( ) {
-        return name;
-    }
+	private Long telephone;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	private String email;
 
-    public Date getDob( ) {
-        return dob;
-    }
+	private LocalDate dateOfMembership;
 
-    public void setDob(Date dob) {
-        this.dob = dob;
-    }
+	private LocalDate dateOfMembershipExp;
 
-    public String getAddress( ) {
-        return address;
-    }
+	public Customer() {
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	/*
+	 * ID is auto assigned, which would then be their member code, and date of
+	 * membership is 4 years after
+	 *
+	 * using LocalDate because that works in storing the date Date class giving
+	 * messy values
+	 */
 
-    public String getTelephone( ) {
-        return telephone;
-    }
+	public Customer(String name, LocalDate dob, String address, Long telephone, String email,
+			LocalDate dateOfMembership) {
+		this.name = name;
+		this.dob = dob;
+		this.address = address;
+		this.telephone = telephone;
+		this.email = email;
+		this.dateOfMembership = dateOfMembership;
+		this.dateOfMembershipExp = dateOfMembership.plusYears(4);
+	}
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public String getEmail( ) {
-        return email;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	public LocalDate getDob() {
+		return dob;
+	}
 
-    public Date getDom( ) {
-        return dom;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setDom(Date dom) {
-        this.dom = dom;
-    }
+	public Long getTelephone() {
+		return telephone;
+	}
 
-    public void calculateExpiryDate(){
-       this.domExpiry.calculateExpiryDate();
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public Date getDomExpiry( ) {
-        return domExpiry;
-    }
+	public LocalDate getDateOfMembership() {
+		return dateOfMembership;
+	}
 
-    public void setDomExpiry(Date domExpiry) {
-        this.domExpiry = domExpiry;
-    }
+	public LocalDate getDateOfMembershipExp() {
+		return dateOfMembershipExp;
+	}
 
-    @Override
-    public String toString( ) {
-        return "Customer{" +
-                "customerId='" + customerId + '\'' +
-                ", name='" + name + '\'' +
-                ", dob=" + dob +
-                ", address='" + address + '\'' +
-                ", telephone='" + telephone + '\'' +
-                ", email='" + email + '\'' +
-                ", dom=" + dom +
-                ", domExpiry=" + domExpiry +
-                '}';
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setTelephone(Long telephone) {
+		this.telephone = telephone;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setDateOfMembership(LocalDate dateOfMembership) {
+		this.dateOfMembership = dateOfMembership;
+	}
+
+	public void setDateOfMembershipExp(LocalDate dateOfMembershipExp) {
+		this.dateOfMembershipExp = dateOfMembershipExp;
+	}
+
+	@Override
+	public String toString() {
+		return "id: " + id + "\nname: " + name + "\ndob: " + dob + "\naddress: " + address + "\ntelephone: " + telephone
+				+ "\nemail: " + email + "\ndateOfMembership: " + dateOfMembership + "\ndateOfMembershipExp: "
+				+ dateOfMembershipExp;
+	}
+
 }
