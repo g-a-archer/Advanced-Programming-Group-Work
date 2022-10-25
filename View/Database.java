@@ -37,7 +37,7 @@ public class Database extends JFrame implements ActionListener {
 		inventory=new JPanel();
 		accounting=new JPanel();
 		tab=new JTabbedPane();
-		tab.setBounds(100, 100, 700,400);
+		tab.setBounds(500, 500, 700,400);
 		//navigationPanel =new JPanel();
 		navigationLabel=new JLabel("Navigation:");
 
@@ -54,7 +54,7 @@ public class Database extends JFrame implements ActionListener {
 		layout();
 	}
 	public void layout() {
-		frame.setLayout(new GridLayout(0,1,1,2));
+		frame.setLayout(new BorderLayout(2,1));
 	
 		panel1.add(navigationLabel);
 		panel1.add(combobox);
@@ -62,19 +62,20 @@ public class Database extends JFrame implements ActionListener {
 		panel2.add(button);
 		panel4.add(panel1,BorderLayout.WEST);
 		panel4.add(panel2,BorderLayout.EAST);
-		frame.add(panel4);
+		frame.add(panel4,BorderLayout.PAGE_START);
 		panel3.add(headerLabel,BorderLayout.CENTER);
-		frame.add(panel3);
+		//frame.add(panel3,BorderLayout.AFTER_LAST_LINE);
 		
 		//frame.add(navigationPanel);
 		tab.add("Dashboard",dashboard);
 		tab.add("Management",management);
 		tab.add("Inventory",inventory);
 		tab.add("Accounting and Sales",accounting);
+		panel5.add(panel3,BorderLayout.NORTH);
 		panel5.add(tab);
-		panel5.setSize(400,200);
+		//panel5.setSize(400,200);
 		frame.add(panel5,BorderLayout.CENTER);
-		frame.setSize(700,400);
+		frame.setSize(700,700);
 		frame.setVisible(true);
 		//frame.isResizable();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
